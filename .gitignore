@@ -1,0 +1,38 @@
+*.egg
+*.egg-info
+*.pyc
+*$py.class
+*~
+.coverage
+coverage.xml
+build/
+dist/
+.tox/
+tailwind/node_modules/
+nosetests.xml
+env*/
+tmp/
+Data*.fs*
+*.sublime-project
+*.sublime-workspace
+.*.sw?
+.sw?
+.DS_Store
+coverage
+test
+*.sqlite
+*.sqlite3
+.web_cache/
+
+# Devenv
+.devenv*
+devenv.local.nix
+
+# direnv
+.direnv
+
+# pre-commit
+.pre-commit-config.yaml
+
+__pycache__
+work/

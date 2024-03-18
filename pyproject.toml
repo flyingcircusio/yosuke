@@ -1,0 +1,60 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "yosuke"
+version = "0.0.1"
+description = "Agent side of Aramaki"
+authors = ["Christian Theune <ct@flyingcircus.io>"]
+license = "AGPLv3"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+arrow = "^1.3.0"
+filelock = "^3.13.1"
+pytz = "^2023.3"
+websockets = "^12"
+zope-sqlalchemy = "^3.0"
+aiofiles = "^23.2.1"
+fswatch = "^0.1.1"
+zstd = "^1.5.5.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.4"
+pytest-cov = ">=4.1"
+pytest-cache = ">=1.0"
+pytest-timeout = ">=2.2"
+pytest-mypy = ">=0.10"
+pytest-patterns = ">=0.1"
+
+[tool.poetry.plugins."console_scripts"]
+yosuke-federation = "yosuke.federation:main"
+yosuke-worker = "yosuke.worker:main"
+
+[project.urls]
+Homepage = "https://github.com/flyingcircusio/yosuke"
+Issues = "https://github.com/flyingcircusio/yosuke/issues"
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[[tool.mypy.overrides]]
+module = "yosuke.*"
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = "pkg_resources.*"
+ignore_errors = true
+
